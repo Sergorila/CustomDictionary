@@ -15,7 +15,7 @@ namespace DiContainer.Injector
             _serviceDescriptors = serviceDescriptors;
         }
 
-        public object GetService(Type serviceType, ref List<Type> dependsList)
+        public object GetService(Type serviceType, List<Type> dependsList)
         {
             var descriptor = _serviceDescriptors[serviceType];
 
@@ -48,8 +48,10 @@ namespace DiContainer.Injector
                     throw new Exception($"{serviceType.Name} type is already referenced.");
                 }
                 dependsList.Add(serviceType);
-                var newParameter = GetService(parameter.ParameterType, ref dependsList);
+                var newParameter = GetService(parameter.ParameterType, dependsList);
+                dependsList.Remove(serviceType);
                 newParameters.Add(newParameter);
+                
             }
 
             var res = newParameters.ToArray();
@@ -68,7 +70,7 @@ namespace DiContainer.Injector
         {
             List<Type> depsList = new List<Type>();
 
-            return GetService(serviceType, ref depsList);
+            return GetService(serviceType, depsList);
         }
 
         public T GetService<T>()

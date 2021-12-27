@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DiContainer.CycleDependence_Test
 {
-    public class ClassOne : IClassOne
+    class ClassFive : IClassFive
     {
-        public ClassOne(IClassTwo b, IClassThree c) { }
+        public ClassFive() { }
 
         public void Show()
         {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiContainer
+namespace DiContainer.CycleDependence_Test
 {
     public interface IClassOne
     {

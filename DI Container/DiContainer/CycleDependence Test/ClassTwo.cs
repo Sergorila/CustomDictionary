@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiContainer
+namespace DiContainer.CycleDependence_Test
 {
     public class ClassTwo : IClassTwo
     {
-        public ClassTwo(IClassOne a) { }
+        public ClassTwo(IClassFour d) { }
 
         public void Show()
         {

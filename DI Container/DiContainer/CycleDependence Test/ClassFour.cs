@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace DiContainer.CycleDependence_Test
 {
-    public class ClassOne : IClassOne
+    class ClassFour : IClassFour
     {
-        public ClassOne(IClassTwo b, IClassThree c) { }
+        public ClassFour(IClassFive e) { }
 
         public void Show()
         {
-            Console.WriteLine("One");
+            Console.WriteLine("Four");
         }
     }
 }

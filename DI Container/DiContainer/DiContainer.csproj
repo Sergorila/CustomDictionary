@@ -43,9 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CycleDependence Test\ClassFive.cs" />
+    <Compile Include="CycleDependence Test\ClassFour.cs" />
     <Compile Include="CycleDependence Test\ClassOne.cs" />
+    <Compile Include="CycleDependence Test\ClassThree.cs" />
     <Compile Include="CycleDependence Test\ClassTwo.cs" />
+    <Compile Include="CycleDependence Test\IClassFive.cs" />
+    <Compile Include="CycleDependence Test\IClassFour.cs" />
     <Compile Include="CycleDependence Test\IClassOne.cs" />
+    <Compile Include="CycleDependence Test\IClassThree.cs" />
     <Compile Include="CycleDependence Test\IClassTwo.cs" />
     <Compile Include="RandomGenerator\IWordGenerator.cs" />
     <Compile Include="RandomGenerator\WordGenerator.cs" />

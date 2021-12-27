@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DiContainer.Injector;
+using DiContainer.CycleDependence_Test;
 
 namespace DiContainer
 {
@@ -43,23 +44,24 @@ namespace DiContainer
             //Cycle Exeption
             Console.WriteLine("Check for cycle exeption");
             var servicesThree = new ServiceCollection();
-            servicesThree.RegisterSingleton<IClassOne, ClassOne>();
+            servicesThree.RegisterTransient<IClassOne, ClassOne>();
             servicesThree.RegisterTransient<IClassTwo, ClassTwo>();
+            servicesThree.RegisterTransient<IClassThree, ClassThree>();
+            servicesThree.RegisterTransient<IClassFour, ClassFour>();
+            servicesThree.RegisterTransient<IClassFive, ClassFive>();
 
             var containerThree = servicesThree.GenerateContainer();
 
             try
             {
                 var singletonTestFirst = containerThree.GetService<IClassOne>();
-                var singletonTestSecond = containerThree.GetService<IClassTwo>();
-
-                var transientTestFirst = containerThree.GetService<IClassTwo>();
-                var transientTestSecond = containerThree.GetService<IClassTwo>();
+                Console.WriteLine("OK");
             }
             catch
             {
                 Console.WriteLine("Cycle found");
             }
+            
         }
     }
 }
